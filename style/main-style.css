@@ -4,30 +4,27 @@
     padding: 0;
 }
 body {
-    font-family: sans-serif;
-    overflow-x: hidden;
+  overflow-x: hidden;
+  font-family: sans-serif;
 }
-body.locked {
-    overflow: hidden;
-  }
 .stacked-intro {
-    position: relative;
-    height: 500vh; /* Adjust based on how many boxes + spacing */
-    overflow: hidden;
+  position: relative;
+  height: 480vh;
+  overflow: visible;
+  z-index: 1;
 }
 .hero {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
-    transition: transform 0.8s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  transition: transform 0.8s ease;
 }
 .hero.shrink {
     transform: translate(-35vw, -35vh) scale(0.5);
@@ -37,31 +34,48 @@ body.locked {
     border-radius: 50%;
 }
 .stack-scroll-wrapper {
-    left:-50%;
+    left:0;
+    top:0;
     min-height: 100%;
     position: relative;
-    z-index: 1;
-    margin-top:200vh;
+    z-index: 0;
+    margin-top:110vh;
 }
+/* Each sticky box */
 .stack-box {
-    position: sticky;
-    height: 50vh;
-    width: 200vw;
-    /*clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);*/
-    transform: rotate(-45deg);
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    font-size: 3rem;
-    color: white;
-    padding-top: 0.1rem;
-    text-align: center;
+  height: 109vh;
+  margin-top:-9vh;
+  width: 100vw;
+  background:transparent;
+  position: sticky;
+  top: 0;
+  text-align: Right;
+  color: #000000;
+  z-index:1;
 }
-.profession { top: 0vh; background: #e06666; z-index: 1; }
-.design     { top: 10vh; background: #6fa8dc; z-index: 2; }
-.coding     { top: 20vh; background: #93c47d; z-index: 3; }
-.consultant { top: 30vh; background: #ffd966; z-index: 4; }
+.angled-label-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 6;
+}
+.angled-text {
+  fill: white;
+  font-size: 3vw;
+  font-weight: bold;
+  dominant-baseline: hanging;
+  alignment-baseline: hanging;
+}
+.profession { clip-path: polygon(0 50vh, 50vw 0, 120% -50vh, 100% 100%, 0% 100%); top: 0vh; background: #e06666; z-index: 1; }
+.design     { clip-path: polygon(0 60vh, 60vw 0, 100% 0, 100% 100%, 0% 100%); top: 0vh; background: #6fa8dc; z-index: 2; }
+.coding     { clip-path: polygon(0 70vh, 70vw 0, 100% 0, 100% 100%, 0% 100%); top: 0vh; background: #93c47d; z-index: 3; }
+.consultant { clip-path: polygon(0 80vh, 80vw 0, 100% 0, 100% 100%, 0% 100%); top: 0vh; background: #ffd966; z-index: 4; }
 .standard-content {
+    position: relative;
     padding: 4rem 2rem;
     background: white;
+    z-index: 6;
 }
