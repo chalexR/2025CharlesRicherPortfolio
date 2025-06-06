@@ -9,7 +9,7 @@ body {
 }
 .stacked-intro {
   position: relative;
-  height: 480vh;
+  height: 450vh;
   overflow: visible;
   z-index: 1;
 }
@@ -41,18 +41,45 @@ body {
     z-index: 0;
     margin-top:110vh;
 }
-/* Each sticky box */
-.stack-box {
-  height: 109vh;
-  margin-top:-9vh;
-  width: 100vw;
-  background:transparent;
+.stack-container {
   position: sticky;
   top: 0;
-  text-align: Right;
-  color: #000000;
-  z-index:1;
+  height: 115vh;
+  margin-top: 0vh;
+  width: 100vw;
+  z-index: 1;
 }
+
+.stack-box {
+  position: relative;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: transparent; /* override per box */
+  clip-path: polygon(0 50vh, 50vw 0, 120% -50vh, 100% 100%, 0 100%);
+  z-index: 2;
+}
+
+/* Example matching extension */
+.angle-extension {
+  position: absolute;
+  top: -50vh;
+  right: 0vw;
+  width: 70vw;
+  height: 70vh;
+  clip-path: polygon(0 100%, 100% 0, 100% 100%);
+  z-index: 1;
+}
+
+.profession   {top:-5vh;}
+.design       {top:5vh;}
+.coding       {top:15vh;}
+.consult      {top:25vh;}
+.profession-ext, .profession-int  { background: #e06666; }
+.design-ext, .design-int          { background: #6fa8dc; }
+.coding-ext, .coding-int          { background: #93c47d; }
+.consult-ext, .consult-int        { background: #ffd966; }
+
 .angled-label-svg {
   position: absolute;
   top: 0;
@@ -69,10 +96,17 @@ body {
   dominant-baseline: hanging;
   alignment-baseline: hanging;
 }
-.profession { clip-path: polygon(0 50vh, 50vw 0, 120% -50vh, 100% 100%, 0% 100%); top: 0vh; background: #e06666; z-index: 1; }
-.design     { clip-path: polygon(0 60vh, 60vw 0, 100% 0, 100% 100%, 0% 100%); top: 0vh; background: #6fa8dc; z-index: 2; }
-.coding     { clip-path: polygon(0 70vh, 70vw 0, 100% 0, 100% 100%, 0% 100%); top: 0vh; background: #93c47d; z-index: 3; }
-.consultant { clip-path: polygon(0 80vh, 80vw 0, 100% 0, 100% 100%, 0% 100%); top: 0vh; background: #ffd966; z-index: 4; }
+
+.stack-box main{
+  position:relative;
+  background-color: antiquewhite;
+  width:59vw;
+  margin-left:38vw;
+  top: 20vh;
+  height:75vh;
+  padding:1%;
+}
+
 .standard-content {
     position: relative;
     padding: 4rem 2rem;

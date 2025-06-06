@@ -16,47 +16,68 @@
 <!-- Start the stacked box content. These boxes serve as the main display and navigation displaying an overview of my work -->
     <div class="stacked-intro">
         <div class="stack-scroll-wrapper">
-            <section class="stack-box profession">
-                <svg class="angled-label-svg">
+
+            <div class="stack-container profession">
+                <div class="angle-extension profession-ext"></div>
+                <section class="stack-box profession-int">
+                    <svg class="angled-label-svg">
                     <defs>
                         <path id="path-profession" />
                     </defs>
                     <text dy="18">
                         <textPath class="angled-text" href="#path-profession" id="angledTextProfession">Professional</textPath>
                     </text>
-                </svg>
-            </section>
-            <section class="stack-box design">
-                <svg class="angled-label-svg">
+                    </svg>
+
+                    <main>
+                        Hello World
+                    </main>
+                </section>
+            </div>
+
+            <div class="stack-container design">
+                <div class="angle-extension design-ext"></div>
+                <section class="stack-box design-int">
+                    <svg class="angled-label-svg">
                     <defs>
                         <path id="path-design" />
                     </defs>
                     <text dy="18">
                         <textPath class="angled-text" href="#path-design" id="angledTextDesign">Design</textPath>
                     </text>
-                </svg>
-            </section>
-            <section class="stack-box coding">
-                <svg class="angled-label-svg">
+                    </svg>
+                </section>
+            </div>
+
+            <div class="stack-container coding">
+                <div class="angle-extension coding-ext"></div>
+                <section class="stack-box coding-int">
+                    <svg class="angled-label-svg">
                     <defs>
                         <path id="path-coding" />
                     </defs>
                     <text dy="18">
                         <textPath class="angled-text" href="#path-coding" id="angledTextCoding">Coding</textPath>
                     </text>
-                </svg>
-            </section>
-            <section class="stack-box consultant">
-                <svg class="angled-label-svg">
+                    </svg>
+                </section>
+            </div>
+
+            <div class="stack-container consult">
+                <div class="angle-extension consult-ext"></div>
+                <section class="stack-box consult-int">
+                    <svg class="angled-label-svg">
                     <defs>
                         <path id="path-consult" />
                     </defs>
                     <text dy="18">
                         <textPath class="angled-text" href="#path-consult" id="angledTextConsult">Consult</textPath>
                     </text>
-                </svg>
-            </section>
-            <section class="stack-box"></section>
+                    </svg>
+                </section>
+            </div>
+
+            <section class="stack-container"></section>
         </div>
     </div>
 <!-- This serves as the main content and will scroll like a normal bit of content -->
