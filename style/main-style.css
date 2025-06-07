@@ -5,14 +5,21 @@
 }
 body {
   overflow-x: hidden;
-  font-family: sans-serif;
+  font-family: Helvetica, sans-serif;
 }
+body.scroll-locked {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+h1, h2{margin: 2px 0px;}
 .stacked-intro {
   position: relative;
-  height: 450vh;
+  height: 690vh;
   overflow: visible;
   z-index: 1;
 }
+
 .hero {
   position: fixed;
   top: 0;
@@ -29,9 +36,12 @@ body {
 .hero.shrink {
     transform: translate(-35vw, -35vh) scale(0.5);
 }
-.heroimg {
+.hero section{width:25vw; text-align: center;}
+.hero section H1, .hero section p, .hero section a {width:100%; padding-bottom:2vh;}
+.hero section img {
     width: 25vw; 
     border-radius: 50%;
+    padding-bottom:2vh;
 }
 .stack-scroll-wrapper {
     left:0;
@@ -44,7 +54,7 @@ body {
 .stack-container {
   position: sticky;
   top: 0;
-  height: 115vh;
+  height: 170vh;
   margin-top: 0vh;
   width: 100vw;
   z-index: 1;
@@ -59,7 +69,19 @@ body {
   clip-path: polygon(0 50vh, 50vw 0, 120% -50vh, 100% 100%, 0 100%);
   z-index: 2;
 }
-
+.scroll-content {
+  border: 2px dashed red;
+  background: rgba(255, 0, 0, 0.1);
+   overflow-y: auto;
+  max-height: 80vh; /* or whatever works for mobile */
+  -webkit-overflow-scrolling: touch;
+}
+.stack-sentinel {
+  height: 4px;
+  width: 100%;
+  margin-top:24vh;
+  background-color: black;
+}
 /* Example matching extension */
 .angle-extension {
   position: absolute;
@@ -71,10 +93,10 @@ body {
   z-index: 1;
 }
 
-.profession   {top:-5vh;}
-.design       {top:5vh;}
-.coding       {top:15vh;}
-.consult      {top:25vh;}
+.profession   {top:0vh;}
+.design       {top:10vh;}
+.coding       {top:20vh;}
+.consult      {top:30vh;}
 .profession-ext, .profession-int  { background: #e06666; }
 .design-ext, .design-int          { background: #6fa8dc; }
 .coding-ext, .coding-int          { background: #93c47d; }
@@ -99,12 +121,30 @@ body {
 
 .stack-box main{
   position:relative;
-  background-color: antiquewhite;
-  width:59vw;
+  background-color: transparent;
+  width:50vw;
   margin-left:38vw;
   top: 20vh;
-  height:75vh;
   padding:1%;
+  overflow:hidden;
+  overflow-y:scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.profession main{height:75vh;}
+.design main{height:65vh;}
+.coding main{height:55vh;}
+.consult main{height:45vh;}
+
+.stacked-design-view{
+  width:100%;
+  margin:.1%;
+}
+.stacked-design-img{
+  width:49%;
+  background-color: white;
+  border-radius: 50%;;
 }
 
 .standard-content {
@@ -112,4 +152,9 @@ body {
     padding: 4rem 2rem;
     background: white;
     z-index: 6;
+}
+
+@media only screen and (max-width: 600px) {
+  .hero section{width:60vw;}
+  
 }
