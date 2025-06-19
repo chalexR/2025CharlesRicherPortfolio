@@ -1,0 +1,130 @@
+:root{
+    /* Colors */
+    --bg-main: #1d1d1d;
+    --bg-profession: #7d6f8e;
+    --bg-design: #d3cdeb;
+    --bg-coding: #6f7ab8;
+    --bg-consult: #8a7464;
+
+    /* Font COlors */
+    --font-primary: #eaeaea;
+}
+body{
+    color: var(--font-primary);
+    background-color: var(--bg-main);
+    overflow-x:hidden;
+}
+/* -----------------------------------
+1.0 Hero Section */
+.hero {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-origin: top left;
+    z-index: 0;
+    background: var(--bg-main); /* or whatever fits your design */
+    transition: transform 0.8s ease-out;
+}
+.hero section{width:35vw; text-align: center;}
+.hero section H1, .hero section p, .hero section a {width:100%; padding-bottom:2vh;}
+.hero img {
+    width: 25vw; 
+    border-radius: 50%;
+    padding-bottom:2vh;
+}
+/* ----------------------------------- */
+
+/* -----------------------------------
+2.0 Stacked Header Section - MAIN CONTAINERS */
+
+.stacked-intro{/* Stacked Section Container for all of the sections */
+
+    /* setting the top margin to make sure the the stack stays out of view until scrolling */
+    margin-top: 100vh;
+    height: 500vh;
+    position: relative;
+    margin-bottom:40vh;
+}
+
+.stack-container {/* interanl stacked container holding 1 section */
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    margin-top: 0vh;
+    width: 100vw;
+    z-index: 1;
+}
+.stack-box { /* main internal box which holds all the content */
+    position: relative;
+    top: 0;
+    height: 100%;
+    width: 100vw;
+    background: transparent; /* override per box */
+    clip-path: polygon(0 50vh, 50vw 0, 120% -50vh, 100% 100%, 0 100%);
+    z-index: 1;
+}
+.angle-extension { /* extenison above the section for style purpose only */
+    position: absolute;
+    top: -50vh;
+    right: 0vw;
+    width: 70vw;
+    height: 70vh;
+    clip-path: polygon(0 100%, 100% 0, 100% 100%);
+    z-index: 1;
+}
+/* -----------------------------------
+2.1 Stacked Header Section - Section specific styles */
+.profession-ext, .profession-int    
+{ background-color: var(--bg-profession);}
+.design-ext, .design-int            
+{ background-color: var(--bg-design);}
+.coding-ext, .coding-int            
+{ background-color: var(--bg-coding);}
+.consult-ext, .consult-int          
+{ background-color: var(--bg-consult);}
+.final-ext, .final-int              
+{ background-color: var(--bg-main);}
+    /* this section sets spacing for the internal divs and the extension parts */
+.design-int     {top: 10vh;}
+.design-ext     {top: -40vh;}
+.coding-int     {top: 20vh;}
+.coding-ext     {top: -30vh;}
+.consult-int    {top: 30vh;}
+.consult-ext    {top: -20vh;}
+.final-int      {top: 40vh;}
+.final-ext      {top: -10vh;}
+
+/* -----------------------------------
+2.2 Stacked Header Section - Angled Text */
+.angled-label-svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  pointer-events: none;
+}
+
+.angled-label-svg text {
+  font-size: 1.5rem;
+  fill: black;
+  font-weight: bold;
+}
+
+.angled-text {
+  dominant-baseline: middle;
+  text-anchor: start;
+}
+/* ----------------------------------- */
+
+/* -----------------------------------
+3.0 Standard Content */
+.standard-content{
+    padding-bottom:50vh;
+    z-index:1;
+    /*background-color: var(--bg-main);*/
+    background-color: #ffffff;
+}
