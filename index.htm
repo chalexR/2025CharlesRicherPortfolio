@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Charles Richer - Digital Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
@@ -15,31 +18,33 @@
             <h1>Charles Richer</h1>
             <p><strong>Creative strategist. Brand builder. Plant enthusiast.</strong></p>    
             <p>I grow ideas, shape stories, and bring a fresh eye to every brief (ideally from beneath a tree).</p>
-            <a href="#contact">Contact</a>
-            <div id="debug-box" style="position: relative; background: white; color: black; padding: 0.5rem; font-weight: bold;">NOTHING
-            </div>
+            <a href="#final-form-holder">Contact</a>
         </section>
     </header>
 
     <section class="stacked-intro">
     <!-- Professional Header Section -->
         <div class="stack-container profession">
-
+            <!-- Stacked Professional Angle Extension-->
                 <div class="angle-extension profession-ext"></div>
-
-                <section class="stack-box profession-int scroll-box">
+            <!-- Stacked Professional Main Content -->
+                <section class="stack-box profession-int d-flex justify-content-start align-items-end">
+                <!-- Angled Section Text -->
                     <svg class="angled-label-svg">
                         <defs>
                             <path id="path-profession" />
                         </defs>
-                        <text dy="18">
+                        <text dy="22">
                             <textPath class="angled-text" href="#path-profession" id="angledTextProfession">
                                 Professional
                             </textPath>
                         </text>
                     </svg>
 
-                    <!-- TODO: CONTENT -->
+                    <section class="left">
+                        My professional career has spanned roles such as Web Master, Marketing Executive and Director. <br />
+                        In my most recent role I scaled a start up from the ground up to a turnover in the region of £750,000. During this time I was instrumental in executing SEO, Digital and Brand Marketing Strategies.
+                    </section>
 
                 </section>
         </div>
@@ -53,7 +58,7 @@
                         <defs>
                             <path id="path-design" />
                         </defs>
-                        <text dy="18">
+                        <text dy="22">
                             <textPath class="angled-text" href="#path-design" id="angledTextDesign">
                                 Design
                             </textPath>
@@ -74,7 +79,7 @@
                         <defs>
                             <path id="path-coding" />
                         </defs>
-                        <text dy="18">
+                        <text dy="22">
                             <textPath class="angled-text" href="#path-coding" id="angledTextCoding">
                                 Coding
                             </textPath>
@@ -95,7 +100,7 @@
                         <defs>
                             <path id="path-consult" />
                         </defs>
-                        <text dy="18">
+                        <text dy="22">
                             <textPath class="angled-text" href="#path-consult" id="angledTextConsult">
                                 Consulting
                             </textPath>
@@ -108,27 +113,73 @@
         </div>
     <!-- Final Header Section -->
         <div class="stack-container final">
-
+            <!-- Stacked Angle Extension -->
                 <div class="angle-extension final-ext"></div>
+            <!-- Stacked Main Content -->
+                <section class="stack-box final-int d-flex justify-content-start align-items-end">
 
-                <section class="stack-box final-int scroll-box">
-                    
-
-                    <!-- TODO: CONTENT -->
+                <!-- Contact Form -->
+                    <div id="final-form-holder">
+                        <form id="contactForm" method="post">
+                            <h4>Drop me a Message</h4>
+                            <label for="name">Name:</label>
+                            <input id="name" name="name" type="text" class="focus-element" required><br />
+                            <label for="email">Email:</label>
+                            <input id="email" name="email" type="email" class="focus-element"><br />
+                            <label for="phone">Phone:</label>
+                            <input id="phone" name="phone" type="tel" class="focus-element"><br /><br />
+                            <!-- TODO: change back to submit -->
+                            <button type="reset" class="focus-element">Send It</button>
+                        </form>
+                    </div>
 
                 </section>
         </div>
     </section>
     
-    <main class="standard-content">
-        Hello!!
-        <br />
+    <main id="standard-content">
+        <aside id="standard-content-side">Hello!!<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></aside>
+        <section id="skill-section">
+            <img src="./assets/image/honeysuckle.svg" id="skill-header-image">
+            <h1 id="skill-header">Skills</h1>
+            <h2 class="skill-list my-4">Brand Building</h2>
+            <h2 class="skill-list my-4">Marketing Strategy</h2>
+            <h2 class="skill-list my-4">Web Design</h2>
+            <h2 class="skill-list my-4">Graphic Design</h2>
+            <h2 class="skill-list my-4">HTML</h2>
+            <h2 class="skill-list my-4">CSS</h2>
+            <h2 class="skill-list my-4">WordPress</h2>
+            <h2 class="skill-list my-4">WooCommerce</h2>
+            <h2 class="skill-list my-4">Full Stack Web Development</h2>
 
+        </section>
     </main>
+
+    <script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const skills = document.querySelectorAll('.skill-list');
+        const alignments = ['float-left', 'float-right', 'float-center'];
+        let previousAlign = null;
+
+        skills.forEach(skill => {
+            // Create a filtered list without the previous alignment
+            const availableAlignments = alignments.filter(align => align !== previousAlign);
+
+            // Pick a random alignment from the filtered list
+            const randomAlign = availableAlignments[Math.floor(Math.random() * availableAlignments.length)];
+
+            // Apply the class
+            skill.classList.add(randomAlign);
+
+            // Update previousAlign for the next iteration
+            previousAlign = randomAlign;
+        });
+    });
+    </script>
     
     <script>
         const hero = document.querySelector('.hero');
-        const standardContent = document.querySelector('.standard-content');
+        const standardContent = document.querySelector('#standard-content');
         const displayHeight = window.innerHeight;
 
         // Scroll event listener
@@ -203,6 +254,18 @@
 
         // Run again whenever the window is resized
         window.addEventListener('resize', updateAllDiagonalPaths);
+    </script>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+
+            if (!email && !phone) {
+            e.preventDefault();
+            alert('Please provide either an email or a phone number.');
+            }
+        });
     </script>
 </body>
 </html>

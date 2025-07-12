@@ -5,15 +5,94 @@
     --bg-design: #d3cdeb;
     --bg-coding: #6f7ab8;
     --bg-consult: #8a7464;
+    --bg-card: #f2f1ec;
+    --accent: #9f94ce;
 
-    /* Font COlors */
+    /* Font Colors */
     --font-primary: #eaeaea;
+
+    /* Fonts */
+    --font-header: "Bodoni Moda", serif;
+
+    /* Spacing */
+    --radius-small: 12px;
+    --radius-large: 50px;
+    --padding-small: 7px;
 }
 body{
     color: var(--font-primary);
     background-color: var(--bg-main);
     overflow-x:hidden;
+    font-size: 12px;
 }
+h1,h2,h3,h4,h5,h6{
+    font-weight: 400;
+    font-family: var(--font-header);
+}
+label{min-width:30%;}
+input, button{
+    outline: none;
+    border: 1px solid var(--accent);
+    border-radius:var(--radius-small);
+    background-color: var(--font-primary);
+    color: var(--bg-main);
+}
+input:focus{
+    background-color: var(--accent);
+    color: var(--font-primary);
+}
+button:hover{
+    background-color: var(--accent);
+    color: var(--font-primary);
+}
+@keyframes wobble{
+    25%{
+        transform:rotate(1deg);
+        transform: translate(-3px); 
+        box-shadow: 0 1px 1px var(--bg-main);
+    }
+    40%{transform:rotate(-1deg);}
+    60%{transform:rotate(1deg);}
+}
+@keyframes click{
+    50%{
+        transform: translateY(2px);
+        box-shadow: 0 1px 2px var(--bg-main) inset;
+    }
+    100%{
+        transform: translateY(-1px);
+    }
+}
+@keyframes form-movement{
+    100%{
+        width: 26vw;
+        margin-bottom: 2vh;
+    }
+}
+.focus-element:hover{
+    animation: wobble .3s;
+}
+.focus-element:focus{
+    animation: click .3s;
+}
+.float-left {
+    margin-left: 0;
+    margin-right: auto;
+    float:left;
+    clear: both;
+}
+.float-right {
+    margin-left: auto;
+    margin-right: 0;
+    float:right;
+    clear:both;
+}
+.float-center {
+    margin-left: auto;
+    margin-right: auto;
+    clear: both;
+}
+
 /* -----------------------------------
 1.0 Hero Section */
 .hero {
@@ -48,7 +127,7 @@ body{
     margin-top: 100vh;
     height: 500vh;
     position: relative;
-    margin-bottom:40vh;
+    margin-bottom:30vh;
 }
 
 .stack-container {/* interanl stacked container holding 1 section */
@@ -67,6 +146,12 @@ body{
     background: transparent; /* override per box */
     clip-path: polygon(0 50vh, 50vw 0, 120% -50vh, 100% 100%, 0 100%);
     z-index: 1;
+}
+.stack-box .left{
+    margin: 0 0 7% 5%;
+    height:30%;
+    width:50%;
+
 }
 .angle-extension { /* extenison above the section for style purpose only */
     position: absolute;
@@ -90,14 +175,14 @@ body{
 .final-ext, .final-int              
 { background-color: var(--bg-main);}
     /* this section sets spacing for the internal divs and the extension parts */
-.design-int     {top: 10vh;}
-.design-ext     {top: -40vh;}
-.coding-int     {top: 20vh;}
-.coding-ext     {top: -30vh;}
-.consult-int    {top: 30vh;}
-.consult-ext    {top: -20vh;}
-.final-int      {top: 40vh;}
-.final-ext      {top: -10vh;}
+.design-int     {top: 6vh;}
+.design-ext     {top: -44.1vh;}
+.coding-int     {top: 12vh;}
+.coding-ext     {top: -38vh;}
+.consult-int    {top: 18vh;}
+.consult-ext    {top: -32vh;}
+.final-int      {top: 24vh;}
+.final-ext      {top: -26vh;}
 
 /* -----------------------------------
 2.2 Stacked Header Section - Angled Text */
@@ -109,22 +194,109 @@ body{
 }
 
 .angled-label-svg text {
-  font-size: 1.5rem;
-  fill: black;
-  font-weight: bold;
+  font-size: 2.3rem;
+  fill: var(--bg-main);
+  font-weight: 400;
+  font-family: var(--font-header);
 }
 
 .angled-text {
   dominant-baseline: middle;
   text-anchor: start;
 }
+/* -----------------------------------
+2.31 Professional Section */
+
+/* -----------------------------------
+2.32 Design Section */
+
+/* -----------------------------------
+2.33 Coding Section */
+
+/* -----------------------------------
+2.34 Consulting Section */
+
+/* -----------------------------------
+2.35 Final Section */
+#final-form-holder{
+    box-sizing: border-box;
+    position:relative;
+    width:25vw;
+    height:100vh;
+    background-color: var(--bg-card);
+    color: var(--bg-main);
+
+    padding: 1em 1em;
+
+    border-bottom-right-radius: 50px;
+    border-bottom:7px solid var(--accent);
+    border-right:7px solid var(--accent);
+
+    z-index: 10;
+    display:flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+
+    overflow-y:auto;
+    transition: 5s ease;
+}
+#final-form-holder:hover{
+    animation: form-movement 10s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+#final-form-holder form{
+    max-height:50vh;
+    z-index:100;
+}
 /* ----------------------------------- */
 
 /* -----------------------------------
 3.0 Standard Content */
-.standard-content{
-    padding-bottom:50vh;
+#standard-content{
+    position:relative;
+    z-index: 0;
+    margin-top: -80vh;
+    padding-bottom:0vh;
     z-index:1;
-    /*background-color: var(--bg-main);*/
-    background-color: #ffffff;
+    background-color: var(--bg-main);
+    background-color: transparent;
+    pointer-events: none;
+}
+#standard-content-side{
+    display:inline-block;
+    vertical-align: top;
+    margin-top: 80vh;
+    min-height:50vh;
+    width:24vw;
+    background-color: #909090;
+}
+#skill-section{
+    display:inline-block;
+    vertical-align: top;
+    background-color: transparent;
+    width:74vw;
+    min-height: 130vh;
+    z-index: 500;
+    padding: 1vh 10vw;
+    pointer-events:auto;
+}
+#skill-header-image{
+    display: inline-block;
+    width:50%;
+    margin-left: -9.5vw;
+    margin-top: -3vh;
+}
+#skill-header{
+    display:inline-block;
+    width: 63%;
+    text-align: left;
+    padding-left:5vw;
+    vertical-align: bottom;
+}
+.skill-list{
+    width: max-content; /* ensures the text determines width */
+    margin: 0.5rem auto; /* centers by default, spacing between */
+    display: block; 
+    transition: all 0.5s ease;
 }
